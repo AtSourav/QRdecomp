@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+  #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Wed Mar  2 19:23:42 2022
@@ -15,6 +15,10 @@ to try and fix some confusion on the git branches
 """
 
 import numpy as np
+
+s=1
+#it probably doesn't matter whether s is 1 or -1 (verify!)
+#is one choice faster than the other?
 
 #%%
 def mod_vec_signed(v):
@@ -33,9 +37,11 @@ def find_u(matrix, size):
     # it should be an array of floats
     
     u = matrix[:,0]
-    u += mod_vec_signed(u)*np.hstack(([1],np.zeros(size-1)))
+    u_res = u + s*mod_vec_signed(u)*np.hstack(([1],np.zeros(size-1)))
+    #we shouldn't do an in place operation on u after slicing from matric, as it
+    #will change matrix
     
-    return u
+    return u_res
 
     
 #%%
