@@ -11,9 +11,11 @@ for the first column of any given matrix"""
 
 import numpy as np
 
-s=1
-#it probably doesn't matter whether s is 1 or -1 (verify!)
-#is one choice faster than the other?
+s=-1
+# we choose s=-1 so eventually if we use am upper triangular matrix as an input,
+# QRdecomposition gives it back (and the Q matrix is identity)
+# choosing s=1 puts an overall minus sign
+# is one choice faster than the other?
 
 #%%
 def mod_vec_signed(v):
@@ -45,7 +47,12 @@ def Householder(matrix,size):
     
     # should return the Householder matrix H
     inner = np.inner(find_u(matrix, size),find_u(matrix, size))
-    subtract = 2*np.outer(find_u(matrix, size),find_u(matrix, size))/inner
+    subtract = 0.
+    if inner != 0:
+        subtract = 2*np.outer(find_u(matrix, size),find_u(matrix, size))/inner
+        
+    # the case of inner=0 corresponds to when the Householder transform should 
+    # the identity, for example when matrix is already upper triangular
     
     return np.eye(size) - subtract
 
