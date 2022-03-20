@@ -8,8 +8,9 @@
 import numpy as np
 import copy
 
-import CustomExceptions
-from Householder import Householder
+from . import CustomExceptions
+from .Householder import Householder
+# '.' refers to the fact that we are importing the respecting modules from the current package. Otherwise when importing the QRdecomp package (which means we are outside the package) which basically imports the __init__ module of the package, the path from which the module should be imported is not specified.
 
 
 #%%
