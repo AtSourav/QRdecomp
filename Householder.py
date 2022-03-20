@@ -1,18 +1,13 @@
   #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Mar  2 19:23:42 2022
-
 @author: sourav
 """
 
 """We intend to make a module to calculate the Householder transform 
 for the first column of any given matrix"""
 
-"""
-I'm not yet sure how to deal with numerics tbh, I'm only making some changes
-to try and fix some confusion on the git branches
-"""
+
 
 import numpy as np
 
