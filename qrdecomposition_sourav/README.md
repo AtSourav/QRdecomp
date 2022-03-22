@@ -1,4 +1,10 @@
-# QRdecomp
-UU course on Python and scientific programming: project 
+# qrdecomposition_sourav
+A package to perform the QR decomposition of a two dimensional matrix.
 
-This is one of the projects suggested in the course: the task is to develop a package to perform the QR decomposition of a matrix using the orthogonal Householder transformation, and then make a pip package out of it with dependencies. And then "Add CI using Travis, testing installation from pip and running on a random matrix." (I'm not yet sure what "CI" and "Travis" are.)
+The package can be used as follows:
+
+import qrdecomposition_sourav as qrs
+
+inst = qrs(M)     # M is a numpy array or a list of ints or floats
+                  # this instantiates a class with methods QR(), Qmatrix(), Rmatrix(), FloatingPointErrorOrder()
+                  # use help(...) to view the docstring for the methods (and other functios defined)
