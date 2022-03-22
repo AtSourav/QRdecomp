@@ -35,6 +35,18 @@ def pad(mat,step):
 #%%
 
 """
+Now we define a function to calculate the order of a (positive) floating point number in base 10. 
+Take a floating point number n and express it in scientific notation ie <sign>x.yz...e<sign><abs exponent>, then the order of the number is 10^<sign><exponent>, we want to calculate <sign><abs exponent>
+"""
+
+def order10(flo):
+    return int(np.floor(np.log10(flo)))
+
+
+
+#%%
+
+"""
 Now onto the main class
 """
 
@@ -52,7 +64,7 @@ class QRdecomposition:
             if mode not in ['complete','reduced']:
                 raise CustomExceptions.ModeUnrecognized
                 
-            arrayQ = np.array(matrix,dtype=float)   
+            arrayQ = np.array(matrix,dtype='float64')   
             
             #arrayQ is a local variable within the __init__ fn and cannot be accessed from anywhere else. Note that we can also create public or private instance variables.
             
@@ -109,15 +121,24 @@ class QRdecomposition:
                 
             if self.__mode=='complete':
                 self.__Q = Q
-                self.__R = R
+                self.__R = np.triu(R)
+                
                 # we create some private instance variables to store the calculated matrices 
                 # these attributes can't be called before the method QR() is called, as they don't exist until the method QR() is applied
                
             elif self.__mode=='reduced':
                 self.__Q = Q[:,:c]
-                self.__R = R[:c,:]
+                self.__R = np.triu(R[:c,:])
                 
-            
+                # we are using np.triu to convert the lower triangular elements to zero by hand
+                # the code itself produces very small numbers (compared to the non-zero elements of the R matrix) instead of exact zeroes because of inaccuracies in floating point arithmetic
+                # we have checked the code without using the np.triu
+                # now we're using it for aesthetic reasons, to put the floating point errors in the lower triangular part of R exactly to zero
+                # np.linalg.qr() does the same, check the source code, although I'm not sure if they perform some additional checks on the output, they use a FORTRAN linear algebra library, I can't tell what the routines from that library are really doing 
+                
+            self.__fperror = order10(np.amax(np.abs(np.tril(R,-1)))) 
+            # this attribute gives the order (base10) to which we are ignoring the floating point error when we set the very small lower triangular elements of R to zero, it doesn't matter what the mode is
+            # in other words, it says that R is upper triangular upto an error of x.yz...e<self.__fperror>
              
             return self.__Q, self.__R  #convert into nice looking results? put numerical zeros to actual zeros?
                 
@@ -141,6 +162,9 @@ class QRdecomposition:
         else:
             self.QR()
             return self.__R
+        
+    def FloatingPointErrorOrder(self):
+        return 'The floating point error is at best of the order of 10^%d' %self.__fperror
             
             
             
