@@ -18,5 +18,6 @@ Can perform operations on two dimensional matrices, but you can try feeding in h
 A consistency check would be to feed in an already upper triangular matrix ;)  
 
 
-## LICENSE
-[MIT](LICENSE)  
+## LICENSE and COPYRIGHT
+&copy Sourav Sarkar
+Licensed under the [MIT License](LICENSE)  
