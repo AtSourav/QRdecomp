@@ -132,7 +132,7 @@ class QRdecomposition:
         
     Returns
     -------
-    out: __main__.QRdecomposition
+    out: class qrdecomposition_sourav.main.QRdecomposition
         The output is a QRdecomposition
         class instance with some (private) attributes and methods relevant to the 
         QR decomposition of the input matrix.
@@ -512,7 +512,7 @@ class QRdecomposition:
 
         Raises
         ------
-        'You need to call the method QR() first'
+        'You need to call the method QR() first.'
             If the QR decomposition of the input matrix hasn't been performed yet.
 
         Returns
