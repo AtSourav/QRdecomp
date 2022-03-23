@@ -1,4 +1,4 @@
-# QRdecomp
+# qrdecomposition_sourav
 
 An overly elaborate and mildly humorous package for the QR decomposition of a real matrix.
 
