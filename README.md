@@ -1,5 +1,4 @@
 # QRdecomp
-UU course on Python and scientific programming: project
 
 An overly elaborate and mildly humorous package for the QR decomposition of a real matrix.
 Built using numpy. Numpy already has a function np.linalg.qr() to do this :/ 
