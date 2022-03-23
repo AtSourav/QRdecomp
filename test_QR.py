@@ -33,7 +33,7 @@ def computeR(x):
 def computeErr(x):
     return qrs(x).FloatingPointErrorOrder()
 
-rtol_val = 1e-9
+rtol_val = 1e-8
 atol_val = 1e-12  # taking an absolute tolerance is important in cases where 
                   # there are elements that are exactly zero
 
