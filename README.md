@@ -19,4 +19,4 @@ A consistency check would be to feed in an already upper triangular matrix ;)
 
 
 ## LICENSE
-[ MIT ] (LICENSE)  
+[MIT](LICENSE)  
