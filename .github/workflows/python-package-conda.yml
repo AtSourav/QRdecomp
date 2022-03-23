@@ -3,11 +3,9 @@ name: Python Package using Conda
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build-linux:
+  run-tests:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
