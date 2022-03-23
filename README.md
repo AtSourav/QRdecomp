@@ -20,4 +20,5 @@ A consistency check would be to feed in an already upper triangular matrix ;)
 
 ## LICENSE and COPYRIGHT
 &copy; Sourav Sarkar
+
 Licensed under the [MIT License](LICENSE)  
