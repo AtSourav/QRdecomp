@@ -17,7 +17,7 @@ The input can be a numpy array or a list of ints or floats, output arrays are al
 
 Can perform operations on two dimensional matrices, but you can try feeding in higher dimensional matrices.
 
-A consistency check would be to feed in an already upper triangular matrix ;)  
+A consistency check would be to feed in an already upper triangular matrix. 
 
 
 ### License and copyright
